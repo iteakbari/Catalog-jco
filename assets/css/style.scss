@@ -1,0 +1,183 @@
+@font-face {
+    font-family: cairo;
+    src: url("./../fonts/Cairo/Cairo-VariableFont_wght.ttf"), url("./../fonts/Cairo/static/Cairo-Black.ttf"),
+        url("./../fonts/Cairo/static/Cairo-Bold.ttf"), url("./../fonts/Cairo/static/Cairo-ExtraBold.ttf"),
+        url("./../fonts/Cairo/static/Cairo-ExtraLight.ttf"), url("./../fonts/Cairo/static/Cairo-Light.ttf"),
+        url("./../fonts/Cairo/static/Cairo-Medium.ttf"), url("./../fonts/Cairo/static/Cairo-SemiBold.ttf"),
+        url("./../fonts/Cairo/static/Cairo-Regular.ttf");
+}
+// body{
+//     font-family: cairo;
+//     padding: 0;
+//     margin: 0;
+//     &::-webkit-scrollbar{
+
+//     }
+// }
+// .wrapper{
+//     background-color: #82efea;
+//     display: grid;
+//     grid-template-columns: 100px auto;
+//     >div{
+//         height: 100%;
+//     }
+//         .ul-menu{
+//             padding: 0;
+//             margin: 0;
+//             list-style-type: none;
+//             height: 100vh;
+//             display: flex;
+//             flex-direction: column;
+//             position: sticky;
+//             top: 0;
+//             li{
+//                 &.flex-1{
+//                     flex: 1;
+//                     transition: flex 200ms;
+//                 }
+//             }
+//         }
+//     .wrapper-content{
+//         height: max-content;
+//         scroll-behavior: smooth;
+//         >section{
+//             height: 100vh;
+//         }
+//     }
+// }
+
+// .gele{
+//     background: url('./../img/152127918_2802023876715967_1172687894623091228_n.jpg');
+//     background-color: red;
+//     height: 500px;
+//     width:500px;
+//     background-size: cover;
+//     animation: shape 5s linear infinite;
+//     // opacity: 0.5;
+//     &.sm-gele{
+//         width:150px;
+//         height:150px;
+//         background-color: orange;
+//     }
+//     &.xs-gele{
+//         width:50px;
+//         height:50px;
+//         background-color: yellow;
+//     }
+// }
+// @keyframes shape {
+//     0%,100%{
+//         border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+//         backdrop-filter: blur(15px);
+//         opacity: 0.8;
+//     }
+//     33%{
+//         border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+//         opacity: 0.4;
+//     }
+//     66%{
+//         border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+//         opacity: 0.9;
+//     }
+// }
+
+$main-color: #389af2;
+$black: #353535;
+
+body {
+    position: relative;
+    font-family: cairo;
+    background-color: $main-color;
+    &::-webkit-scrollbar{
+        width: 1px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: transparent;
+    }
+}
+.wrapper {
+    min-height: 100vh;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    color: #fff;
+    position: relative;
+    display: grid;
+    grid-template-columns: 150px auto;
+}
+
+section {
+    height: 100vh;
+    font-size: 40px;
+    font-weight: 100;
+    // background-color: $;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // $colors: white,
+    // #F64747,
+    // #22A7F0,
+    // #F9690E,
+    // #9B59B6,
+    // #03C9A9,
+    // #ffcc00;
+
+    // @for $i from 1 through length($colors) {
+    //     &:nth-child(#{$i}) {
+    //         background: nth($colors, $i)
+    //     }
+    // }
+}
+
+.navUl {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: grid;
+    align-items: flex-end;
+    align-content: flex-end;
+    transition: all 0.15s ease-out;
+    font-size: 12px;
+    font-weight: 300;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        position: relative;
+        transition: all 0.3s ease-out;
+        transition: transform 500ms ease-in-out;
+
+        a {
+            display: block;
+            padding: 0;
+            color: #fff;
+            font-family: cairo;
+            padding: 0 10px;
+            transition: all 0.15s ease-out;
+            height: 25px;
+
+            &:hover {
+                background-color: transparent;
+                padding-left: 1em;
+            }
+
+            &:focus {
+                background-color: transparent;
+            }
+            &.active {
+                pointer-events: none;
+                // height: 450px;
+                transition: height 300ms ease-in;
+                font-weight: bold;
+                font-size: 14px;
+                transition: font-weight 300ms,font-size 300ms;
+            }
+        }
+    }
+}

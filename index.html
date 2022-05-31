@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+    <div class="wrapper">
+
+        <nav class="nav__wrapper" id="navbar-example">
+            <ul class="navUl">
+                <li class=" nav-item">
+                    <a href="#section1" class="nav-link">
+                        About Us
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#section2" class="nav-link">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section3" class="nav-link">
+                        Works
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section4" class="nav-link">
+                        Clients
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section5" class="nav-link">
+                        How We Are?
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section6" class="nav-link">
+                        Contact Us
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section7" class="nav-link">
+                        Join Us
+                    </a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <a href="#section8" class="nav-link">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-offset="0" class="scrollspy-example"
+            tabindex="0">
+            <section class="section section1" id="section1">
+                <div id="loading">
+                    <svg xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+            </section>
+
+            <section class="section section2" id="section2">
+                Section 2
+            </section>
+
+            <section class="section section3" id="section3">
+                Section 3
+            </section>
+
+            <section class="section section4" id="section4">
+                Section 4
+            </section>
+
+            <section class="section section5" id="section5">
+                Section 5
+            </section>
+
+            <section class="section section6" id="section6">
+                Section 6
+            </section>
+
+            <section class="section section7" id="section7">
+                Section 7
+            </section>
+
+            <section class="section section8" id="section8">
+                Section 8
+            </section>
+        </div>
+
+    </div>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/popper-v2-11-2.js"></script>
+    <script src="./assets/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/lottie.js"></script>
+    
+    <script>
+        // SMOOTH SCROLLING SECTIONS
+        // $("a[href*=#]:not([href=#])").click(function () {
+        //     if (
+        //         location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") ||
+        //         location.hostname == this.hostname
+        //     ) {
+        //         var target = $(this.hash);
+        //         target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+        //         if (target.length) {
+        //             $("html,body").animate(
+        //                 {
+        //                     scrollTop: target.offset().top
+        //                 },
+        //                 1000
+        //             );
+        //             return false;
+        //         }
+        //     }
+        // });
+
+        $(document).ready(function () {
+            $('.navUl .nav-link').removeClass('active');
+            $('.navUl .nav-item:first-child a').addClass('active');
+            $('.nav-link.active').parent().prev().css('color', 'red');
+            let listItem = $('.navUl li');
+            let listItemHeight = (listItem.height()) * (listItem.length)
+            let fTop = $('.navUl').height();
+            let spaceFromTop = fTop - listItemHeight;
+            $('.navUl .nav-item:first-child').css('transform', `translateY(-${spaceFromTop}px)`);
+
+            $('.navUl .nav-link').on('click', function (e) {
+                let targetIndex = $(e.target).parent().index();
+                if ($(e.target).is('.topItem')) {
+                    // $(e.target).parent().css('transform', 'none');
+                    $(`.navUl li:gt(${targetIndex})`).css('transform', 'none');
+                    $(`.navUl li:gt(${targetIndex}) a`).removeClass('topItem');
+                } else {
+                    $(e.target).parent().css('transform', `translateY(-${spaceFromTop}px)`);
+                    $(e.target).addClass('topItem');
+                    $(`.navUl li:not(:gt(${targetIndex}))`).css('transform', `translateY(-${spaceFromTop}px)`);
+                    $(`.navUl li:not(:gt(${targetIndex})) a`).addClass('topItem');
+                }
+            });
+            $(window).scroll(function () {
+                let activeItem = $('.navUl a.active');
+                let targetIndex = activeItem.parent().index();
+                if ($(activeItem).is('.topItem')) {
+                    // $(e.target).parent().css('transform', 'none');
+                    $(`.navUl li:gt(${targetIndex})`).css('transform', 'none');
+                    $(`.navUl li:gt(${targetIndex}) a`).removeClass('topItem');
+                } else {
+                    $(activeItem).parent().css('transform', `translateY(-${spaceFromTop}px)`);
+                    $(activeItem).addClass('topItem');
+                    // console.log(targetIndex,activeItem);
+                    $(`.navUl li:not(:gt(${targetIndex}))`).css('transform', `translateY(-${spaceFromTop}px)`);
+                    $(`.navUl li:not(:gt(${targetIndex})) a`).addClass('topItem');
+                }
+            })
+        });
+        var illustArr = ['loading'];
+        var illust;
+        const animAll = [];
+        for (var i = 0; i < illustArr.length; i += 1) {
+            illust = document.getElementById(illustArr[i]);
+            var params = {
+                container: illust,
+                name: illustArr[i],
+                autoplay: true,
+                loop: true,
+                path: 'assets/js/' + illustArr[i] + '.json',
+                renderer: 'svg'
+            };
+            console.log(params);
+            var anim = bodymovin.loadAnimation(params);
+            animAll[i] = anim;
+        }
+        
+
+        $(".section1").hover(function () {
+            var id = $(this).data("id");
+            animAll[id].goToAndPlay(0);
+        }, function () {
+            var id = $(this).data("id");
+            animAll[id].goToAndStop(0);
+        });
+
+        
+    </script>
+</body>
+
+</html>
