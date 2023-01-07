@@ -1,0 +1,91 @@
+body {
+  text-align: right;
+  direction: rtl;
+}
+
+.page.inactive {
+  transform: translateX(100%);
+}
+.page.removing h2,
+.page.removing ul {
+  transform: translateY(100%);
+}
+.page ul li {
+  padding-left: 0px;
+  padding-right: 15px;
+}
+.page ul li::before {
+  left: auto;
+  right: 0;
+}
+
+.nav--btn {
+  float: right;
+}
+.nav--btn:first-child {
+  margin-right: 0;
+}
+.nav--btn:first-child:after {
+  display: none;
+}
+.nav--btn:last-child {
+  margin-right: 1.5rem;
+}
+.nav--btn:last-child:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer .ul-lang li::after {
+  right: auto;
+  left: 0;
+}
+.footer .ul-lang li:last-child::after {
+  content: none;
+}
+
+.rt-point .page-number {
+  left: auto;
+  right: calc(50% - 1.5rem);
+}
+.rt-point .page-number:nth-child(1) {
+  margin-left: 0;
+  margin-right: 0rem;
+}
+.rt-point .page-number:nth-child(2) {
+  margin-left: 0;
+  margin-right: 5rem;
+}
+.rt-point .page-number:nth-child(3) {
+  margin-left: 0;
+  margin-right: 10rem;
+}
+.rt-point .page-number:nth-child(4) {
+  margin-left: 0;
+  margin-right: 15rem;
+}
+.rt-point .page-number:nth-child(5) {
+  margin-left: 0;
+  margin-right: 20rem;
+}
+.rt-point .page-number:nth-child(6) {
+  margin-left: 0;
+  margin-right: 25rem;
+}
+.rt-point .page-number:nth-child(7) {
+  margin-left: 0;
+  margin-right: 30rem;
+}
+.rt-point .page-number:nth-child(8) {
+  margin-left: 0;
+  margin-right: 35rem;
+}
+.rt-point .page-number:nth-child(9) {
+  margin-left: 0;
+  margin-right: 40rem;
+}
+.rt-point .page-number:nth-child(10) {
+  margin-left: 0;
+  margin-right: 45rem;
+}/*# sourceMappingURL=rtl-style.css.map */

@@ -64,7 +64,7 @@ $(document).ready(function() {
         svgPagination(prevPage, curPage, numDir, numDirRev);
       }
       
-      $(".page-number").css("transform", "translateX(-"+ (page - 1) * 5 +"rem)");
+      $(".page-number").css("transform", "translateX("+ (page - 1) * 5 +"rem)");
       
       if (direction === "down") {
         $prevActive.addClass("removing down");
@@ -137,7 +137,7 @@ $(document).ready(function() {
       $path.velocity({strokeDasharray: len, strokeDashoffset: len}, {duration: 0});
   
       $(".nav--btn-" + point).append(svg);
-      $(svg).css({"left": (w * 2 - 2)});
+      $(svg).css({"right": (w * 2 - 2)});
       
       $path.delay(delay).velocity({strokeDashoffset: 0}, {duration: duration, easing: easing});
       setTimeout(function() {
